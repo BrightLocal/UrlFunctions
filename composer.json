@@ -1,0 +1,14 @@
+{
+  "name": "BrightLocal/UrlFunctions",
+  "type": "library",
+  "description": "Set of URL manipulation functions",
+  "homepage": "https://github.com/BrightLocal/UrlFunctions",
+  "require": {
+    "php": ">=5.5"
+  },
+  "autoload": {
+    "psr-0": {
+      "UrlFn": "src/"
+    }
+  }
+}

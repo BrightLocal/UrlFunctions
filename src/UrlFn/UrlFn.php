@@ -1,5 +1,5 @@
 <?php
-namespace BrightLocal;
+namespace UrlFn;
 
     /**
      * Edited by Nitin Kr. Gupta, publicmind.in
