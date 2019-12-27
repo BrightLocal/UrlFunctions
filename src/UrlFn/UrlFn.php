@@ -139,7 +139,7 @@ class UrlFn {
         }
         // compare last multi-byte character against '/'
         if ($outPath != '/' &&
-            (mb_strlen($path) - 1) == mb_strrpos($path, '/', 'UTF-8')
+            (mb_strlen($path) - 1) == mb_strrpos($path, '/', 0, 'UTF-8')
         ) {
             $outPath .= '/';
         }
@@ -215,7 +215,7 @@ class UrlFn {
         $xunressub = 'a-zA-Z\d\-._~\!$&\'()*+,;=';
         $xpchar = $xunressub . ':@% ';
         // Scheme from RFC3986.
-        $xscheme = '([a-zA-Z][a-zA-Z\d+-.]*)';
+        $xscheme = '([a-zA-Z][a-zA-Z\d+\-.]*)';
         // User info (user + password) from RFC3986.
         $xuserinfo = '(([' . $xunressub . '%]*)' .
             '(:([' . $xunressub . ':%]*))?)';
@@ -226,7 +226,7 @@ class UrlFn {
         // Host name from RFC1035.  Technically, must start with a letter.
         // Relax that restriction to better parse URL structure, then
         // leave host name validation to application.
-        $xhost_name = '([a-zA-Z\d-.%]+)';
+        $xhost_name = '([a-zA-Z\d\-.%]+)';
         // Authority from RFC3986.  Skip IP future.
         $xhost = '(' . $xhost_name . '|' . $xipv4 . '|' . $xipv6 . ')';
         $xport = '(\d*)';
